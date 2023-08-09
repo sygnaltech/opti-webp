@@ -118,13 +118,13 @@ def resize_and_convert(directory, max_dimension_size):
                     # Save as PNG
                     # Make this a configurable option, or cmdline param 
                     new_filename = os.path.splitext(filename)[0] + "_resized.png"
-                    img.save(os.path.join(directory, new_filename), "PNG", optimize=True)
+                    img.save(os.path.join(settings.output_directory, new_filename), "PNG", optimize=True)
                     print(f"Saved resized image as: {new_filename}")
 
                 # Convert to WebP
                 webp_filename = generate_webp_filename(os.path.splitext(filename)[0])
 #                webp_filename = os.path.splitext(filename)[0] + ".webp"
-                img.save(os.path.join(directory, webp_filename), "WEBP")
+                img.save(os.path.join(settings.output_directory, webp_filename), "WEBP")
                 print(f"Converted image to WebP: {webp_filename}")
 
                 # Delete resized PNG file
@@ -143,12 +143,10 @@ def init_settings():
 
     # Add arguments
     parser.add_argument('directory', type=str, nargs='?', help="input directory")
-#    parser.add_argument('-i', '--interactive', action='store_true', help="run in interactive mode")
     parser.add_argument('-a', '--auto', action='store_true', help="run in automatic mode")
     parser.add_argument('-w', '--webflow', action='store_true', help="rename the files for Webflow asset compatability")
-    parser.add_argument('--out', type=str, dest="output_directory", help="output to the specified directory, instead of the source file's directory")
+    parser.add_argument('-o', '--out', type=str, dest="output_directory", help="output to the specified directory, instead of the source file's directory")
     parser.add_argument('-m', '--maxsize', type=int, default=None, dest='max_size', help="resize to fit in maximum dimensions, preserving aspect ratio")
-    # parser.add_argument('-rerun', action='store_true', default=False, help="re-run the tool on completion")
 
     # Parse the arguments
     args = parser.parse_args()
@@ -157,15 +155,10 @@ def init_settings():
     if not args.output_directory:
         args.output_directory = args.directory
 
-    print("Directory:", args.directory)
+    print("Input Directory:", args.directory)
     print("Output Directory:", args.output_directory)
-    print("Rename Webflow:", args.webflow)
-    
+    print("Rename for Webflow?", args.webflow)
     print("Max Dimensions Size:", args.max_size)
-#    print("Max width specified?", 'maxsize' in vars(args))
-#    if not 'maxsize' in vars(args):
-#        args.max_size = -1
-#    print("Re-run?", args.rerun)
     print("Max Dimensions Size:", args.max_size)
     print("\n")
 
@@ -190,11 +183,11 @@ def run_main():
     max_dimension_size = settings.max_size
     if not settings.auto:
         max_dimension_size = get_max_dimension_size()
-#    if max_dimension_size:
     resize_and_convert(directory, max_dimension_size)
 
-if __name__ == "__main__":
 
+
+if __name__ == "__main__":
 
     set_console_title()
     display_initial_message()
@@ -202,17 +195,7 @@ if __name__ == "__main__":
     display_instructions()
 
     run_main()
-
-    '''
-    directory = settings.directory # sys.argv[1]
-    if not directory:
-        directory = select_directory()
-    if directory:
-        max_dimension_size = get_max_dimension_size()
-        if max_dimension_size:
-            resize_and_convert(directory, max_dimension_size)
-    '''
-    
+ 
     # Keep the command window open and prompt the user to restart
     if not settings.auto:
         while True:
