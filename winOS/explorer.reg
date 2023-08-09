@@ -1,0 +1,49 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpeg\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpeg\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.gif\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.gif\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.bmp\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.bmp\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.heic\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.heic\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tiff\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tiff\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tif\shell\Convert to WEBP]
+@="Convert to WEBP"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tif\shell\Convert to WEBP\command]
+@="\wscript "D:\\Projects\\opti-webp\\dist\\opti-webp.vbs" \"%1\" -a -w"
