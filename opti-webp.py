@@ -46,17 +46,21 @@ def select_files():
 
     return file_paths
 
-def get_icon_path():
+def get_exe_dir():
     if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, 'opti-webp.ico')
+        return sys._MEIPASS
     else:
-        return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'opti-webp.ico')
+        return os.path.dirname(os.path.abspath(__file__))
+
+def get_icon_path():
+    return os.path.join(get_exe_dir(), 'opti-webp.ico')
+
 
 class MaxDimensionSizeDialog(tk.Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
         self.title("Max Dimension Size")
-        self.iconbitmap(get_icon_path())
+#        self.iconbitmap(get_icon_path())
         self.geometry("300x250")
         self.resizable(False, False)
 
